@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add global styles for background image */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('hos.jpg') no-repeat center center fixed; /* Replace with your background image URL */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Make the form-container stand out against the background */
+        .form-container {
+            background: rgba(255, 255, 255, 0.9); /* Add transparency to the form background */
+            padding: 25px 35px;
+            border-radius: 15px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #4a90e2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 2px solid #4a90e2;
+            border-radius: 6px;
+            font-size: 14px;
+            background: #f9f9f9;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #f6a623;
+            box-shadow: 0 0 5px rgba(246, 166, 35, 0.5);
+            outline: none;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #4a90e2, #f6a623);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #f6a623, #4a90e2);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 500px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>🌟 Hospital Registration Form 🌟</h1>
+        <form action="register.php" method="POST">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="0" placeholder="Enter your age" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="contactNumber">Contact Number</label>
+                <input 
+                    type="tel" 
+                    id="contactNumber" 
+                    name="contactNumber" 
+                    placeholder="Enter your 10-digit mobile number" 
+                    pattern="[0-9]{10}" 
+                    maxlength="10" 
+                    title="Mobile number must be exactly 10 digits" 
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="Enter your email (e.g., example@mail.com)" 
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="medicalHistory">Medical History</label>
+                <textarea id="medicalHistory" name="medicalHistory" rows="4" placeholder="Provide your medical history"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="appointmentDate">Preferred Appointment Date</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+            </div>
+            <button type="submit" class="btn">Submit Registration</button>
+        </form>
+    </div>
+</body>
+</html>
